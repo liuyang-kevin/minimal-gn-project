@@ -7,6 +7,7 @@ deps = {
   "buildtools": "https://chromium.googlesource.com/chromium/src/buildtools",
 
   "tools/gyp":  "https://chromium.googlesource.com/external/gyp",
+  "tools/gn":  "https://chromium.googlesource.com/chromium/src/tools/gn",
 
 }
 
