@@ -2,11 +2,11 @@ use_relative_paths = True
 
 deps = {
 
-  "build":      "https://chromium.googlesource.com/chromium/src/build.git",
+  "build":      "https://chromium.googlesource.com/chromium/src/build",
 
-  "buildtools": "https://chromium.googlesource.com/chromium/buildtools.git",
+  "buildtools": "https://chromium.googlesource.com/chromium/buildtools",
 
-  "tools/gyp":  "https://chromium.googlesource.com/external/gyp.git",
+  "tools/gyp":  "https://chromium.googlesource.com/external/gyp",
 
 }
 
