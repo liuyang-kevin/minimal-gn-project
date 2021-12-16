@@ -12,8 +12,10 @@ deps = {
                 "version": "git_revision:" + Var("clang_revision"),
             },
         ],
-        "condition": "host_cpu == x64 and host_os == linux",
-        "dep_type": "cipd",
+        "condition":
+        "host_cpu == x64 and host_os == linux",
+        "dep_type":
+        "cipd",
     },
     Var("demo") + "/buildtools/mac-x64/clang": {
         "packages": [
@@ -23,8 +25,10 @@ deps = {
             },
         ],
         # TODO(https://fxbug.dev/73385): Use arm64 toolchain on arm64 when it exists.
-        "condition": "host_cpu == x64 and host_os == mac or host_cpu == arm64 and host_os == mac",
-        "dep_type": "cipd",
+        "condition":
+        "host_cpu == x64 and host_os == mac or host_cpu == arm64 and host_os == mac",
+        "dep_type":
+        "cipd",
     },
     Var("demo") + "/buildtools/win-x64/clang": {
         "packages": [
@@ -33,8 +37,10 @@ deps = {
                 "version": "git_revision:" + Var("clang_revision"),
             },
         ],
-        "condition": "host_cpu == x64 and host_os == win",
-        "dep_type": "cipd",
+        "condition":
+        "host_cpu == x64 and host_os == win",
+        "dep_type":
+        "cipd",
     },
     Var("demo") + "/buildtools/linux-arm64/clang": {
         "packages": [
@@ -43,8 +49,10 @@ deps = {
                 "version": "git_revision:" + Var("clang_revision"),
             },
         ],
-        "condition": "host_os == 'linux' and host_cpu == 'arm64'",
-        "dep_type": "cipd",
+        "condition":
+        "host_os == 'linux' and host_cpu == 'arm64'",
+        "dep_type":
+        "cipd",
     },
     Var("demo") + "/buildtools": {
         "packages": [
@@ -53,7 +61,16 @@ deps = {
                 "version": "git_revision:" + Var("gn_revision"),
             },
         ],
-        "dep_type": "cipd",
+        "dep_type":
+        "cipd",
     },
 }
 
+hooks = [
+    {
+        'name': 'buildtools',
+        'pattern': '.',
+        'action': ['python3',
+                   Var("demo") + '/tools/buildtools/update.py'],
+    },
+]
